@@ -1,0 +1,8 @@
+Internet
+Unix
+Bash
+chmod
+Kernel
+Shell
+touch
+mkdir
