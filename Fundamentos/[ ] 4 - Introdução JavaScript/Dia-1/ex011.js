@@ -22,3 +22,58 @@
 // O último cálculo para conseguir o salário líquido é R$ 2.670,00 - R$ 57,45 (salário-base - valor IR) = R$ 2.612,55.
 // Resultado: R$ 2.612,55.
 // Dica: que tal identificar as alíquotas com variáveis de nomes explicativos?
+
+let salarioBruto = 21341.56+526.83;
+let salarioLiquido = 0;
+let salarioBase = 0;
+
+//INSS
+if (salarioBruto > 5189.82) {
+  salarioBase = salarioBruto - 570.88;
+} 
+  else if (salarioBruto >= 2594.93) {
+  let aliquotaINSS = 11;
+  salarioBase = salarioBruto - (salarioBruto * (aliquotaINSS / 100));
+} 
+else if (salarioBruto >= 1556.95) {
+  let aliquotaINSS = 9;
+  salarioBase = salarioBruto - (salarioBruto * (aliquotaINSS / 100));
+} 
+else {
+  let aliquotaINSS = 8;
+  salarioBase = salarioBruto - (salarioBruto * (aliquotaINSS / 100));
+}
+
+console.log(salarioBase);
+
+//IR
+if (salarioBase < 1903.98) {
+  salarioLiquido = salarioBase;
+}
+else if (salarioBase <= 2826.65) {
+  let aliquotaIR = 7.5;
+  let parcela = 142.80;
+  let descontos = ((salarioBase * (aliquotaIR / 100)) - parcela);
+  salarioLiquido = salarioBase - descontos;
+}
+else if (salarioBase <= 3751.05) {
+  let aliquotaIR = 15;
+  let parcela = 354.80;
+  let descontos = ((salarioBase * (aliquotaIR / 100)) - parcela);
+  salarioLiquido = salarioBase - descontos;
+}
+else if (salarioBase <= 4664.68) {
+  let aliquotaIR = 22.5;
+  let parcela = 636.13;
+  let descontos = ((salarioBase * (aliquotaIR / 100)) - parcela);
+  salarioLiquido = salarioBase - descontos;
+}
+else {
+  let aliquotaIR = 27.5;
+  let parcela = 869.36;
+  let descontos = ((salarioBase * (aliquotaIR / 100)) - parcela);
+  salarioLiquido = salarioBase - descontos;
+}
+
+console.log('O salário líquido será: R$'+ salarioLiquido );
+console.log(salarioBase - salarioLiquido );
